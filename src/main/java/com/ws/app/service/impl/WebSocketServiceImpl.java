@@ -17,7 +17,7 @@ public class WebSocketServiceImpl implements WebSocketService {
 	public Message register(Message message, SimpMessageHeaderAccessor accessor) {
 		LOG.trace("register..");
 		accessor.getSessionAttributes().put("username", message.getSender());
-		LOG.trace("register done ... {}", message.toString());
+		LOG.trace("register done ... {}", message);
 
 		return message;
 	}
@@ -27,7 +27,7 @@ public class WebSocketServiceImpl implements WebSocketService {
 		LOG.trace("send message ..");
 		Thread.sleep(1000);
 		Message sender = new Message(message.getContent(), message.getSender());
-		LOG.trace("send message .. {}", sender.toString());
+		LOG.trace("send message .. {}", sender);
 
 		return sender;
 	}
